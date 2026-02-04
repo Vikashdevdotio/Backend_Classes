@@ -10,7 +10,7 @@ function App() {
 
 
   function fetchNotes() {
-    axios.get("http://localhost:3000/api/notes").then((res) => {
+    axios.get("https://note-3yyl.onrender/api/notes").then((res) => {
       setNotes(res.data.notes);
     });
   }
@@ -21,7 +21,7 @@ function App() {
    function handleSubmit(e){
     e.preventDefault()
     const {title, description}= e.target.elements
-    axios.post("http://localhost:3000/api/notes",{
+    axios.post("https://note-3yyl.onrender/api/notes",{
       title: title.value,
       description: description.value
     })
@@ -33,7 +33,7 @@ function App() {
   }
 
   function handleDeleteNote(noteId){
-    axios.delete("http://localhost:3000/api/notes/"+noteId)
+    axios.delete("https://note-3yyl.onrender/api/notes/"+noteId)
     .then(res=>{
       console.log(res.data)
       fetchNotes() 
@@ -41,7 +41,7 @@ function App() {
   }
   
   function handleUpdateNote(noteId) {
-  axios.patch("http://localhost:3000/api/notes/"+noteId, {
+  axios.patch("https://note-3yyl.onrender/api/notes/"+noteId, {
     description: updatedDescription
   })
   .then(res => {
