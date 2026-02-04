@@ -5,6 +5,10 @@ import axios from "axios"
 
 function App() {
   const [Notes, setNotes] = useState([]);
+  const [editingId, setEditingId] = useState(null);
+  const [updatedDescription, setUpdatedDescription] = useState("")
+
+
   function fetchNotes() {
     axios.get("http://localhost:3000/api/notes").then((res) => {
       setNotes(res.data.notes);
@@ -36,28 +40,70 @@ function App() {
     })
   }
   
+  function handleUpdateNote(noteId) {
+  axios.patch("http://localhost:3000/api/notes/"+noteId, {
+    description: updatedDescription
+  })
+  .then(res => {
+    console.log(res.data);
+    setEditingId(null);
+    setUpdatedDescription("");
+    fetchNotes();
+  });
+}
+
   return (
     <>
-    <form 
-    onSubmit={handleSubmit}
-    className='note-create-form'>
-       <input name='title'  type="text" placeholder='Enter Title' />
-       <input name='description'type="text" placeholder='Enter Description' />
+      <form onSubmit={handleSubmit} className="note-create-form">
+        <input name="title" type="text" placeholder="Enter Title" />
+        <input name="description" type="text" placeholder="Enter Description" />
         <button>Create Note</button>
-    </form>
+      </form>
       <div className="notes">
-        {
-          Notes.map(note=>{
-            return   <div className="note">
-          <h1>{note.title}</h1>
-          <p>{note.description}</p>
-          <button onClick={()=>{handleDeleteNote(note._id)}}>Delete</button>
-        </div>
-          })
-        }
+        {Notes.map((note) => {
+          return (
+            <div className="note" key={note._id}>
+              <h1>{note.title}</h1>
+              {editingId === note._id ? (
+                <>
+                  <input
+                    type="text"
+                    value={updatedDescription}
+                    onChange={(e) => setUpdatedDescription(e.target.value)}
+                  />
+                  <button className="updatebtn" onClick={() => handleUpdateNote(note._id)}>
+                    Update
+                  </button>
+                  <button className="cancelbtn" onClick={() => setEditingId(null)}>Cancel</button>
+                </>
+              ) : (
+                <>
+                  <p>{note.description}</p>
+                  <button
+                  className="editbtn"
+                    onClick={() => {
+                      setEditingId(note._id);
+                      setUpdatedDescription(note.description);
+                    }}
+                  >
+                    Edit <i class="ri-edit-line"></i>
+                  </button>
+                </>
+              )}
+              <button
+              className="deletebtn"
+                onClick={() => {
+                  handleDeleteNote(note._id);
+                }}
+              >
+                Delete <i class="ri-delete-bin-line"></i>
+              </button>
+            </div>
+          );
+        })}
       </div>
     </>
-  )
+  );
 }
 
 export default App

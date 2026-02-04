@@ -15,6 +15,8 @@ html{
 
 .notes{
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding-block: 1rem;
   padding-inline: 3rem;
@@ -24,13 +26,87 @@ html{
   background-color: #494949;
   padding: 1rem;
   border-radius: 0.7rem;
-  max-width: 20rem;
+  max-width: 22rem;
   color: white;
 }
-
+.note h1{
+  text-transform: capitalize;
+}
+.note p{
+  font-weight: 600;
+}
+.note .deletebtn{
+  margin-top: 0.5rem;
+  margin-left: 10px;
+  padding-block: 0.3rem;
+  padding-inline: 0.5rem;
+  font-weight: 600;
+  background-color: rgb(182, 0, 0);
+  color: white;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+}
+.note .updatebtn{
+  margin-left: 0.3rem;
+  padding-block: 0.3rem;
+  padding-inline: 0.5rem;
+  font-weight: 600;
+  background-color: rgb(0, 105, 153);
+  color: white;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+}
+.note .cancelbtn{
+  margin-left: 0.3rem;
+  padding-block: 0.3rem;
+  padding-inline: 0.5rem;
+  font-weight: 600;
+  background-color: rgba(180, 1, 1, 0.812);
+  color: white;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+}
+.note .editbtn{
+  margin-top: 0.5rem;
+   padding-block: 0.3rem;
+  padding-inline: 0.5rem;
+  font-weight: 600;
+  background-color: rgb(0, 153, 122);
+  color: white;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+}
 .note-create-form{
+  align-items: center;
+  justify-content: center;
   display: flex;
   gap: 1rem;
   padding-inline: 3rem;
   padding-block: 1rem;
+}
+.note-create-form input{
+  font-size: 1rem;
+  font-weight: 600;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+}
+.note-create-form input::placeholder{
+  font-weight: 600;
+}
+.note-create-form button{
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 0.5rem;
+  background-color: rgb(5, 91, 5);
+  outline: none;
+  border: none;
 }
