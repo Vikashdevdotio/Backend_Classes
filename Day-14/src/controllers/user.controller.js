@@ -74,7 +74,7 @@ async function updateFollowStatusController(req, res) {
     }
     if (followRequest.status === "accepted") {
       return res.status(400).json({
-        message: "You are already following this user",
+        message: "Your follow request is already accepted",
       });
     }
 
