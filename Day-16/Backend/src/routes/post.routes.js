@@ -30,6 +30,7 @@ postRouter.get("/details/:postId",identifyUser,postController.getPostDetailContr
  * @description like a post with the id provided in the request params.
  */
 postRouter.post("/like/:postId", identifyUser, postController.likePostController)
+postRouter.post("/unlike/:postId", identifyUser, postController.unLikePostController)
 
 /**
  * @route GET /api/posts/feed

@@ -1,8 +1,8 @@
 .feed-page{
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-
+    align-items: center;
+    flex-direction: column;
 
     .feed{
         max-width:300px;
@@ -21,7 +21,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            background:linear-gradient(to right, rgba(255, 156, 156, 0.729) , rgba(255, 255, 255, 0.743));
+            background:linear-gradient(to right, rgba(255, 156, 156, 0.558) , rgba(255, 255, 255, 0.743));
             padding-inline: 0.5rem;
             padding-block: 0.5rem;
 
