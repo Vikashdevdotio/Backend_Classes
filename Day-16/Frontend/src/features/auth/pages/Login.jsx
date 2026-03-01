@@ -3,6 +3,8 @@ import "../style/form.scss";
 import { Link } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router";
+import logo from "../../../assets/Instanamelogo.png"
+import img1 from "../../../assets/Insta.png"
 
 
 const Login = () => {
@@ -26,15 +28,19 @@ const Login = () => {
   if(loading){
     return (
         <main>
-            <h1>Loading......</h1>
+            <h1 style={{color:'gray'}}>Loading......</h1>
         </main>
     )
   }
 
   return (
     <main>
+      <div className="side-section">
+        <h1>See everyday moments from <br />your <span>close friends</span>.</h1>
+        <img src={img1} alt="" />
+      </div>
       <div className="form-container">
-        <h1>Login</h1>
+        <img src={logo} alt=""/>
         <form onSubmit={handleSubmit}>
           <input
             onInput={(e)=>{setUsername(e.target.value)}}

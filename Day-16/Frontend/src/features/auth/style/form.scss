@@ -11,21 +11,70 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap:2rem;
+    
+    .side-section{
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+     
+      h1{
+        font-size: 3rem;
+        text-align: center;
+        font-weight: 500;
+        color: rgba(128, 128, 128, 0.795);
+
+        span{
+          -webkit-text-fill-color: transparent;
+          background-image: linear-gradient(to right, red , rgb(254, 0, 220));
+          -webkit-background-clip:text;
+
+        }
+      }
+
+      img{
+        width: 70vh;
+      }
+    }
 
     .form-container{
       @include flex-column(1rem);
 
-        min-width: 350px;
-    }
+        width: 400px;
+        height: 60vh;
+        background-color: white;
+        padding-block: 5rem;
+        border: 1px solid rgba(128, 128, 128, 0.38);
+        border-radius: 20px;
+    
+      img{
+        margin-inline: auto;
+        width:13rem;
+      }
+       p{
+        text-align: center;
+        color: gray;
+       }
+      }
     form{
      @include flex-column(1rem);
 
      input{
-        border: none;
+  
+        border: 0.5px solid gray;
         outline: none;
         padding-inline: 1rem;
         padding-block: 0.5rem;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
+
+        &::placeholder{
+          font-weight: 500;
+        }
+
      }
     }
+}
+h1{
+  color: whitesmoke;
 }

@@ -1,7 +1,10 @@
 .nav-bar{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
     padding-inline: 1rem;
     padding-block: 0.5rem;
+
+    .button{
+        font-size: 0.7rem;
+        background-color: #0084ff !important;
+        letter-spacing: 1px;
+    }
 }

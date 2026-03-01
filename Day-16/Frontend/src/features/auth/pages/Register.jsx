@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import { Link, useNavigate } from 'react-router'
 import { useAuth } from '../hooks/useAuth';
+import logo from "../../../assets/Instanamelogo.png"
+import img1 from "../../../assets/Insta.png"
 
 const Register = () => {
   const  {loading,handleRegister} = useAuth()
@@ -18,13 +20,17 @@ const Register = () => {
   };
 
   if(loading){
-    return(<main><h1>Loading....</h1></main>)
+    return(<main><h1 style={{color:'gray'}}>Loading....</h1></main>)
   }
 
   return (
     <main>
+       <div className="side-section">
+                <h1>See everyday moments from <br />your <span>close friends</span>.</h1>
+                <img src={img1} alt="" />
+              </div>
       <div className="form-container">
-        <h1>Register</h1>
+         <img src={logo} alt=""/>
         <form onSubmit={handleSubmit}>
           <input
             onChange={(e) => {
@@ -71,7 +77,7 @@ const Register = () => {
           </button>
         </form>
         <p>
-          Already have an account ? <Link to={"/login"}>Login to account.</Link>
+          Already have an account ? <Link to={"/login"}>Login.</Link>
         </p>
       </div>
     </main>

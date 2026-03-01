@@ -11,7 +11,6 @@ const Nav = () => {
 
   return (
    <nav className='nav-bar'>
-         <p>Insta</p>
          <button 
          onClick={()=>{navigate("/create-post")}}
          className="button primary-button">New Post</button>

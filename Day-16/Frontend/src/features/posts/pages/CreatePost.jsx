@@ -2,7 +2,7 @@ import React,{useState ,useRef} from 'react'
 import "../style/createpost.scss"
 import { usePost } from '../hook/usePost'
 import { useNavigate } from 'react-router'
-
+import logo from '../../../assets/Instanamelogo.png'
 
 
 const CreatePost = () => {
@@ -27,16 +27,16 @@ const CreatePost = () => {
     if(loading){
         return (
             <main>
-                <h1>Creating Post</h1>
+                <h1 style={{color:'gray'}}>Creating Post....</h1>
             </main>
         )
     }
   return (
     <main className="create-post-page">
       <div className="form-container">
-        <h1>Create Post</h1>
+        <img src={logo} alt="logo" />
         <form onSubmit={handleSubmit}>
-            <label className='post-image-label' htmlFor="postImage">Select Image</label>
+            <label className='post-image-label' htmlFor="postImage"><i class="ri-image-add-line"></i> Select Image</label>
             <input ref={postImageInputFieldRef} hidden type="file" name="postImage" id='postImage'/>
             <input 
             value={caption}
