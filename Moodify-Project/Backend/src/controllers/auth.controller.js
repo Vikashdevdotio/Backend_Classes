@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 const userModel = require("../models/user.model")
-
+const blacklistModel = require("../models/blacklist.model")
 
 async function registerUser(req,res) {
     const {username, email, password} = req.body
@@ -13,7 +13,7 @@ async function registerUser(req,res) {
         ]
     })
 
-    
+
     if(isAlreadyRegister){
         return res.status(400).json({
             message:"User with the same email or username already exists"
@@ -57,7 +57,7 @@ async function loginUser(req,res) {
             {username},
             {email}
         ]
-    })
+    }).select("+password")
 
     if(!user){
         return res.status(400).json({
@@ -97,8 +97,35 @@ async function loginUser(req,res) {
 
 
 
+async function getMe(req, res) {
+    const user = await userModel.findById(req.user.id)
+
+    res.status(200).json({
+        message: "User fetched successfully",
+        user
+    })
+}
+
+async function logoutUser(req, res) {
+
+    const token = req.cookies.token
+
+    res.clearCookie("token")
+
+    await blacklistModel.create({
+        token
+    })
+
+    res.status(200).json({
+        message: "logout successfully."
+    })
+
+}
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    getMe,
+    logoutUser
     
 }
