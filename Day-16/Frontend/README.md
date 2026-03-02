@@ -188,25 +188,25 @@ The following features are currently in progress:
 
 ### 🔐 Login Page
 
-![Login](./assets/Insta1.jpg)
+![Login](./src/assets/Insta3.png)
 
 ---
 
 ### ➕ Create Post Page
 
-![Create Post](./assets/Insta2.jpg)
+![Create Post](./src/assets/Insta2.png)
 
 ---
 
 ### 📰 Feed Page
 
-![Feed](./assets/Insta3.jpg)
+![Feed](./src/assets/Insta1.png)
 
 ---
 
 ### 🚫 404 Page Not Found
 
-![404](./assets/404.gif)
+![404](./src/assets/Insta4.png)
 
 ---
 
