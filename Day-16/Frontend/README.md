@@ -1,97 +1,105 @@
-📸 InstaClone – Full Stack Social Media Application
+Here is a **professional, portfolio-ready README.md** for your InstaClone project including application flow, protected routes, 404 handling, and screenshots section.
+
+You can copy this directly into your `README.md` file.
+
+---
+
+# 📸 InstaClone – Full Stack Social Media Application
 
 A full-stack Instagram-inspired social media web application built using modern web technologies.
 This project demonstrates authentication, protected routing, post creation, and error handling with a clean UI.
 
-🚀 Live Application Flow
-🔄 1. Default Landing (Feed Page)
+---
 
-When you open the website, the Feed page loads first.
+## 🚀 Live Application Flow
 
-The feed initially shows a loading state.
+### 🔄 1. Default Landing (Feed Page)
 
-However, the feed is protected.
-
-You must be logged in to access and view posts.
+* When you open the website, the **Feed page loads first**.
+* The feed initially shows a loading state.
+* However, the feed is **protected**.
+* You must be logged in to access and view posts.
 
 If not authenticated → You must log in first.
 
-🔐 2. Login Page
+---
 
-Route:
+### 🔐 2. Login Page
 
+**Route:**
+
+```
 /login
+```
 
-To access login, manually add /login in the URL.
+* To access login, manually add `/login` in the URL.
+* Enter your username and password to authenticate.
+* If you do not have an account, click the **Register** button available on the login form.
 
-Enter your username and password to authenticate.
+---
 
-If you do not have an account, click the Register button available on the login form.
+### 📝 3. Register Page
 
-📝 3. Register Page
+**Route:**
 
-Route:
-
+```
 /register
+```
 
-New users must register first.
+* New users must register first.
+* After successful registration, you can log in and access the feed.
 
-After successful registration, you can log in and access the feed.
+---
 
-➕ 4. Create New Post
+### ➕ 4. Create New Post
 
-After logging in, navigate to the Feed page.
+* After logging in, navigate to the **Feed page**.
+* Click the **"New Post"** button.
+* Select an image.
+* Add a caption.
+* Click **Create Post** to publish.
 
-Click the "New Post" button.
+---
 
-Select an image.
+### 🚫 5. Page Not Found Handling (404)
 
-Add a caption.
+* If you try to access any route other than:
 
-Click Create Post to publish.
-
-🚫 5. Page Not Found Handling (404)
-
-If you try to access any route other than:
-
-/
-
-/login
-
-/register
-
-You will be redirected to a PageNotFound (404) screen.
+  * `/`
+  * `/login`
+  * `/register`
+* You will be redirected to a **PageNotFound (404)** screen.
 
 This ensures proper route handling and improves user experience.
 
-🛠 Tech Stack
-Frontend
+---
 
-React.js
+## 🛠 Tech Stack
 
-React Router DOM
+### Frontend
 
-Tailwind CSS
+* React.js
+* React Router DOM
+* Tailwind CSS
 
-Backend
+### Backend
 
-Node.js
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
 
-Express.js
+### Authentication
 
-MongoDB
+* JWT (JSON Web Token)
+* Protected Routes
+* Middleware Authorization
 
-Mongoose
+---
 
-Authentication
+## 📂 Project Structure
 
-JWT (JSON Web Token)
-
-Protected Routes
-
-Middleware Authorization
-
-📂 Project Structure
+```
 client/
  ├── src/
  │   ├── components/
@@ -106,79 +114,124 @@ server/
  ├── routes/
  ├── middleware/
  └── server.js
-⚙️ Installation & Setup
-1️⃣ Clone the repository
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
 git clone https://github.com/your-username/your-repository-name.git
-2️⃣ Install Dependencies
-Frontend
+```
+
+---
+
+### 2️⃣ Install Dependencies
+
+#### Frontend
+
+```bash
 cd client
 npm install
-Backend
+```
+
+#### Backend
+
+```bash
 cd server
 npm install
-3️⃣ Run the Application
-Start Backend Server
+```
+
+---
+
+### 3️⃣ Run the Application
+
+#### Start Backend Server
+
+```bash
 npm run dev
-Start Frontend
+```
+
+#### Start Frontend
+
+```bash
 npm run dev
-🔒 Protected Routes
+```
 
-Feed page is accessible only after authentication.
+---
 
-JWT is used to verify user identity.
+## 🔒 Protected Routes
 
-Unauthorized users cannot access protected content.
+* Feed page is accessible only after authentication.
+* JWT is used to verify user identity.
+* Unauthorized users cannot access protected content.
 
-🚧 Features Under Development
+---
+
+## 🚧 Features Under Development
 
 The following features are currently in progress:
 
-❤️ Like functionality
+* ❤️ Like functionality
+* 💬 Comment system
+* 👤 User profile page
+* 🔍 Explore section improvements
+* 🔔 Notification system
+* Follow / Unfollow feature
+* Responsive design enhancements
 
-💬 Comment system
+---
 
-👤 User profile page
+## 📸 Screenshots
 
-🔍 Explore section improvements
+### 🔐 Login Page
 
-🔔 Notification system
+![Login](./assets/Insta1.jpg)
 
-Follow / Unfollow feature
+---
 
-Responsive design enhancements
+### ➕ Create Post Page
 
-📸 Screenshots
-🔐 Login Page
+![Create Post](./assets/Insta2.jpg)
 
-➕ Create Post Page
+---
 
-📰 Feed Page
+### 📰 Feed Page
 
-🚫 404 Page Not Found
+![Feed](./assets/Insta3.jpg)
 
-🎯 Learning Highlights
+---
+
+### 🚫 404 Page Not Found
+
+![404](./assets/404.gif)
+
+---
+
+## 🎯 Learning Highlights
 
 This project demonstrates:
 
-Full Stack Development
+* Full Stack Development
+* REST API Integration
+* Authentication & Authorization
+* Protected Routing
+* State Management
+* Error Handling (404 Routing)
+* UI/UX Design with Tailwind
 
-REST API Integration
+---
 
-Authentication & Authorization
-
-Protected Routing
-
-State Management
-
-Error Handling (404 Routing)
-
-UI/UX Design with Tailwind
-
-🤝 Contribution
+## 🤝 Contribution
 
 Contributions are welcome!
 Feel free to fork this repository and submit a pull request.
 
-📄 License
+---
+
+## 📄 License
 
 This project is open-source and available under the MIT License.
+
