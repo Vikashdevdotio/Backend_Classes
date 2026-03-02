@@ -14,4 +14,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    .backBtn{
+        border: 1px solid rgba(128, 128, 128, 0.212);
+        border-radius: 50px;
+        font-size: 1rem;
+          -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, rgb(255, 63, 63), rgb(255, 177, 67), rgb(255, 56, 228));
+            -webkit-background-clip: text;
+        cursor: pointer;
+        position: absolute; 
+        padding-inline: 0.8rem;
+        padding-block: 0.2rem;
+        top: 3%;
+        left: 3%;
+    }
 }

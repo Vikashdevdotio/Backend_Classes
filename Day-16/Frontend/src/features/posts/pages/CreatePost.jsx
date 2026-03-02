@@ -22,7 +22,9 @@ const CreatePost = () => {
 
        navigate('/')
     }
-
+    function backBtn(){
+    navigate("/")
+    }
 
     if(loading){
         return (
@@ -34,6 +36,7 @@ const CreatePost = () => {
   return (
     <main className="create-post-page">
       <div className="form-container">
+        <button className='backBtn' onClick={backBtn}><i class="ri-arrow-left-s-line"></i>Back</button>
         <img src={logo} alt="logo" />
         <form onSubmit={handleSubmit}>
             <label className='post-image-label' htmlFor="postImage"><i class="ri-image-add-line"></i> Select Image</label>
