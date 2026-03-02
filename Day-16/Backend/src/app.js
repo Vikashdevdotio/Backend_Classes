@@ -6,10 +6,9 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: true, // This reflects the request origin back (use only for debugging!)
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-}));
+    credentials:true,
+    origin:"https://instaclone-gmpf.onrender.com"
+}))
 app.use(express.static("./public"))
 
 /**
