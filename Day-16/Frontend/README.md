@@ -1,10 +1,4 @@
-Here is a **professional, portfolio-ready README.md** for your InstaClone project including application flow, protected routes, 404 handling, and screenshots section.
-
-You can copy this directly into your `README.md` file.
-
----
-
-# 📸 InstaClone – Full Stack Social Media Application
+ 📸 InstaClone – Full Stack Social Media Application
 
 A full-stack Instagram-inspired social media web application built using modern web technologies.
 This project demonstrates authentication, protected routing, post creation, and error handling with a clean UI.
