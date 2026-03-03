@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
     credentials:true,
-    origin:"https://instaclone-gmpf.onrender.com"
+    origin:"http://localhost:5173"
 }))
 app.use(express.static("./public"))
 

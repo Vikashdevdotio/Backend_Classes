@@ -5,7 +5,7 @@ const blacklistModel = require("../models/blacklist.model")
 const redis = require("../config/cache")
 
 
-async function registerUser(req,res) {
+async function registerUser(req,res){
     const {username, email, password} = req.body
 
     const isAlreadyRegister = await userModel.findOne({
@@ -38,7 +38,7 @@ async function registerUser(req,res) {
         process.env.JWT_SECRET,
         {expiresIn:"3d"}
 )
-
+    console.log(process.env.JWT_SECRET)
    res.cookie("token", token)
 
      res.status(201).json({
@@ -49,7 +49,9 @@ async function registerUser(req,res) {
             email:user.email
         }
      })
+     
 }
+
 
 async function loginUser(req,res) {
     const {username, email, password} = req.body
@@ -95,6 +97,7 @@ async function loginUser(req,res) {
             email: user.email
         }
     })
+    
 }
 
 

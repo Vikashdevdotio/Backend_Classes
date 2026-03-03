@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^0.10.32",
+    "axios": "^1.13.6",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-router": "^7.13.1",
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
