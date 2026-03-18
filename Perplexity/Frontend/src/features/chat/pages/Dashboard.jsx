@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 import { useSelector } from 'react-redux'
 import { useChat } from '../hook/useChat'
 
@@ -6,13 +7,13 @@ import { useChat } from '../hook/useChat'
 const Dashboard = () => {
   const chat = useChat()
   const [ chatInput, setChatInput ] = useState('')
-  // const [ userMessage, setUserMessage ] = useState('')
 
   const chats = useSelector((state) => state.chat.chats)
   const currentChatId = useSelector((state) => state.chat.currentChatId)
 
   useEffect(() => {
     chat.initializeSocketConnection()
+    chat.handleGetChats()
   }, [])
 
   const handleSubmitMessage = (event) => {
@@ -27,6 +28,11 @@ const Dashboard = () => {
     setChatInput('')
   }
 
+  // eslint-disable-next-line no-unused-vars
+  const openChat = (chatId) => {
+    chat.handleOpenChat(chatId)
+  }
+
   return (
     <main className='min-h-screen w-full bg-[#07090f] p-3 text-white md:p-5'>
       <section className='mx-auto flex h-[calc(100vh-1.5rem)] w-full gap-4 rounded-3xl border   p-1 md:h-[calc(100vh-2.5rem)] md:gap-6 md:p-1 border-none'>
@@ -34,13 +40,13 @@ const Dashboard = () => {
           <h1 className='mb-5 text-3xl font-semibold tracking-tight'>Perplexity</h1>
 
           <div className='space-y-2'>
-            {Array.from({ length: 6 }).map((_, index) => (
+            {Object.values(chats).map((chat,index) => (
               <button
                 key={index}
                 type='button'
-                className='w-full rounded-xl border border-white/60 bg-transparent px-3 py-2 text-left text-base font-medium text-white/90 transition hover:border-white hover:text-white'
+                className='w-full cursor-pointer rounded-xl border border-white/60 bg-transparent px-3 py-2 text-left text-base font-medium text-white/90 transition hover:border-white hover:text-white'
               >
-                Chat title
+                 {chat.title}
               </button>
             ))}
           </div>
@@ -57,7 +63,21 @@ const Dashboard = () => {
                     : 'mr-auto border border-white/25 bg-[#0f1626] text-white/90'
                   }`}
               >
-                <p>{message.content}</p>
+                {message.role === 'user' ? (
+                  <p>{message.content}</p>
+                ) : (
+                  <ReactMarkdown
+                    components={{
+                      p: ({ children }) => <p className='mb-2 last:mb-0'>{children}</p>,
+                      ul: ({ children }) => <ul className='mb-2 list-disc pl-5'>{children}</ul>,
+                      ol: ({ children }) => <ol className='mb-2 list-decimal pl-5'>{children}</ol>,
+                      code: ({ children }) => <code className='rounded bg-white/10 px-1 py-0.5'>{children}</code>,
+                      pre: ({ children }) => <pre className='mb-2 overflow-x-auto rounded-xl bg-black/30 p-3'>{children}</pre>
+                    }}
+                  >
+                    {message.content}
+                  </ReactMarkdown>
+                )}
               </div>
             ))}
           </div>
