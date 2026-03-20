@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { useSelector } from 'react-redux'
 import { useChat } from '../hook/useChat'
+import remarkGfm from 'remark-gfm'
 
 
 const Dashboard = () => {
   const chat = useChat()
   const [ chatInput, setChatInput ] = useState('')
-
   const chats = useSelector((state) => state.chat.chats)
   const currentChatId = useSelector((state) => state.chat.currentChatId)
 
@@ -28,9 +28,8 @@ const Dashboard = () => {
     setChatInput('')
   }
 
-  // eslint-disable-next-line no-unused-vars
   const openChat = (chatId) => {
-    chat.handleOpenChat(chatId)
+    chat.handleOpenChat(chatId,chats)
   }
 
   return (
@@ -42,11 +41,12 @@ const Dashboard = () => {
           <div className='space-y-2'>
             {Object.values(chats).map((chat,index) => (
               <button
+                onClick={()=>{openChat(chat.id)}}
                 key={index}
                 type='button'
                 className='w-full cursor-pointer rounded-xl border border-white/60 bg-transparent px-3 py-2 text-left text-base font-medium text-white/90 transition hover:border-white hover:text-white'
               >
-                 {chat.title}
+                {chat.title}
               </button>
             ))}
           </div>
@@ -60,7 +60,7 @@ const Dashboard = () => {
                 key={message.id}
                 className={`max-w-[82%] w-fit rounded-2xl px-4 py-3 text-sm md:text-base ${message.role === 'user'
                     ? 'ml-auto rounded-br-none bg-white/12 text-white'
-                    : 'mr-auto border border-white/25 bg-[#0f1626] text-white/90'
+                    : 'mr-auto border-none text-white/90'
                   }`}
               >
                 {message.role === 'user' ? (
@@ -74,6 +74,7 @@ const Dashboard = () => {
                       code: ({ children }) => <code className='rounded bg-white/10 px-1 py-0.5'>{children}</code>,
                       pre: ({ children }) => <pre className='mb-2 overflow-x-auto rounded-xl bg-black/30 p-3'>{children}</pre>
                     }}
+                    remarkPlugins={[remarkGfm]}
                   >
                     {message.content}
                   </ReactMarkdown>
